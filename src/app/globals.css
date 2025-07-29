@@ -25,6 +25,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.374px;
   line-height: 25px;
+  overflow: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ===== Layout Components ===== */
@@ -42,23 +45,23 @@ body {
 /* ===== Mobile Layout (below 650px) ===== */
 @media (max-width: 650px) {
   .wrapper {
-    position: relative !important;
+    position: fixed !important;
     width: 100vw !important;
     height: 100vh !important;
     top: 0 !important;
     left: 0 !important;
-    overflow-y: auto !important;
+    overflow: hidden !important;
     background-color: var(--background) !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  /* Mobile Header */
+  /* Mobile Header Container */
   .header-text {
     position: fixed !important;
-    width: auto !important;
+    width: 250px !important;
     height: 30px !important;
     top: 32px !important;
     left: 32px !important;
-    right: 80px !important;
     font-size: 25px !important;
     font-weight: 600 !important;
     display: flex !important;
@@ -68,7 +71,17 @@ body {
     z-index: 1001 !important;
     line-height: 25px !important;
     letter-spacing: -0.374px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+    box-sizing: border-box !important;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
+
+
 
   /* Hide About button on mobile */
   .about-button {
@@ -183,6 +196,8 @@ body {
   .mobile-menu > li {
     display: block;
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   /* Submenu stacked vertically under parent */
@@ -191,7 +206,7 @@ body {
     flex-direction: column;
     width: 100%;
     padding-left: 0.5rem;
-    margin-top: 0.5rem;
+    margin: 0;
     list-style: none;
     overflow: hidden;
     max-height: 0;
@@ -212,10 +227,10 @@ body {
     text-decoration: none;
     font-weight: bold;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
-    padding-right: 10rem;
+    padding-right: 1rem;
     line-height: 25px;
     letter-spacing: -0.374px;
   }
@@ -235,6 +250,7 @@ body {
     width: 1rem !important;
     height: 1rem !important;
     display: block !important;
+    margin-left: 1rem !important;
   }
 
   /* Override desktop pseudo-elements */
@@ -301,13 +317,14 @@ body {
 
   /* Mobile Content Area - Full page scroll */
   .scroll-frame {
-    position: relative !important;
+    position: absolute !important;
     top: 94px !important;
     left: 0 !important;
     width: 100% !important;
-    min-height: calc(100vh - 94px) !important;
-    overflow: visible !important;
+    height: calc(100vh - 94px) !important;
+    overflow-y: auto !important;
     background-color: var(--background) !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .scroll-content {
