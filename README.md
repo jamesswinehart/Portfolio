@@ -68,11 +68,11 @@ src/
 ## Design System
 
 ### Colors
-- **Background**: `#F5F5F7` (Apple-style light gray)
-- **Foreground**: `#1D1D1F` (Dark gray for text)
+- **Background**: `#F5F5F7` (Apple-style white)
+- **Foreground**: `#1D1D1F` (Apple-style grey for text)
 
 ### Typography
-- **Font Family**: Helvetica, Arial, sans-serif
+- **Font Family**: Helvetica, Georgia, Arial, sans-serif
 - **Line Height**: 25px
 - **Letter Spacing**: -0.374px
 
@@ -112,4 +112,4 @@ This project is private and proprietary.
 
 ## Contact
 
-James Swinehart - [Your contact information]
+James Swinehart - jamesswine@gmail.com
