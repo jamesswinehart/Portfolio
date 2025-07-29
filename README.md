@@ -1,4 +1,4 @@
-# James Swinehart Portfolio
+# James Swinehart's Portfolio
 
 A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Features a beautiful Apple-inspired design with smooth animations and a golden ratio layout.
 
