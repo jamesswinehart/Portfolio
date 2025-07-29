@@ -66,8 +66,6 @@ body {
     justify-content: left !important;
     background-color: var(--background) !important;
     z-index: 1001 !important;
-    will-change: auto;
-    transform: translateZ(0);
     line-height: 25px !important;
     letter-spacing: -0.374px !important;
   }
