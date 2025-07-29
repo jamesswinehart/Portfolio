@@ -1,128 +1,115 @@
 # James Swinehart Portfolio
 
-A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS 4.
+A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Features a beautiful Apple-inspired design with smooth animations and a golden ratio layout.
 
-## 🚀 Features
+## Features
 
-- **Responsive Design**: Optimized for both desktop and mobile devices
-- **Smooth Animations**: Custom hamburger menu animation and smooth scrolling
-- **Modern UI**: Clean, minimalist design with consistent typography
-- **TypeScript**: Full type safety throughout the application
-- **Performance**: Optimized with Next.js 15 features
+- **Golden Ratio Layout**: Desktop version uses a perfectly proportioned golden ratio wrapper
+- **Responsive Design**: Full-screen mobile experience with hamburger navigation
+- **Apple-Style Animations**: Smooth entrance animations and transitions
+- **Interactive Navigation**: Expandable sidebar with smooth scrolling
+- **Modern Tech Stack**: Next.js 15, TypeScript, Tailwind CSS 4
 
-## 📁 Project Structure
+## Tech Stack
 
-```
-src/
-├── app/
-│   ├── globals.css          # Global styles and responsive design
-│   ├── layout.tsx           # Root layout component
-│   └── page.tsx             # Home page component
-├── components/
-│   ├── ContentBlocks/       # Content section components
-│   │   ├── AboutContent.tsx # About section content
-│   │   └── Section.tsx      # Reusable section wrapper
-│   ├── AboutButton.tsx      # About button component
-│   ├── ContentWindow.tsx    # Main content area with scroll detection
-│   ├── Header.tsx           # Site header component
-│   ├── MobileMenuOverlay.tsx # Full-screen mobile navigation
-│   ├── MobileMenuToggle.tsx # Hamburger menu toggle
-│   ├── Sidebar.tsx          # Desktop sidebar navigation
-│   └── Wrapper.tsx          # Main layout wrapper with context
-```
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Animations**: CSS transitions with Apple-style cubic-bezier curves
 
-## 🎨 Design System
-
-### Typography
-- **Line Height**: 25px across all text elements
-- **Letter Spacing**: -0.374px for consistent character spacing
-- **Font Family**: Helvetica/Arial for UI, Georgia for content
-
-### Colors
-- **Background**: `#F5F5F7` (light gray)
-- **Foreground**: `#1D1D1F` (dark gray)
-- **Scrollbar**: Semi-transparent dark with hover states
-
-### Breakpoints
-- **Mobile**: Below 650px
-- **Desktop**: 651px and above
-
-## 🛠️ Development
+## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ 
 - npm or yarn
 
 ### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd Portfolio
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-### Development Server
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-### Build
-```bash
-npm run build
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.css          # Main stylesheet with responsive design
+│   ├── layout.tsx           # Root layout component
+│   └── page.tsx             # Main page component
+├── components/
+│   ├── ContentBlocks/       # Content section components
+│   │   ├── AboutContent.tsx
+│   │   └── Section.tsx
+│   ├── AboutButton.tsx      # About button component
+│   ├── ContentWindow.tsx    # Main content area
+│   ├── Header.tsx           # Header component
+│   ├── MobileMenuOverlay.tsx # Mobile navigation overlay
+│   ├── MobileMenuToggle.tsx # Hamburger menu toggle
+│   ├── Sidebar.tsx          # Desktop sidebar navigation
+│   └── Wrapper.tsx          # Main wrapper with context
 ```
 
-### Linting
-```bash
-npm run lint
-```
+## Design System
 
-## 📱 Mobile Features
+### Colors
+- **Background**: `#F5F5F7` (Apple-style light gray)
+- **Foreground**: `#1D1D1F` (Dark gray for text)
 
-- **Hamburger Menu**: Custom animated toggle with X transformation
-- **Full-Screen Navigation**: Overlay menu with smooth transitions
-- **Responsive Layout**: Optimized spacing and typography for mobile
-- **Touch-Friendly**: Large touch targets and smooth scrolling
+### Typography
+- **Font Family**: Helvetica, Arial, sans-serif
+- **Line Height**: 25px
+- **Letter Spacing**: -0.374px
 
-## 🖥️ Desktop Features
-
-- **Sidebar Navigation**: Expandable menu sections with smooth animations
-- **Content Area**: Scrollable content with intersection observer
-- **Gradient Overlays**: Subtle fade effects for visual hierarchy
-
-## 🔧 Technical Details
-
-### State Management
-- **Context API**: `VisibleSectionsContext` for tracking visible content sections
-- **Local State**: Component-level state for UI interactions
+### Breakpoints
+- **Mobile**: `max-width: 650px`
+- **Desktop**: `min-width: 651px`
 
 ### Animations
-- **CSS Transitions**: Smooth 0.3s ease transitions
-- **Transform Animations**: Rotations and translations for menu toggles
-- **Intersection Observer**: Scroll-based visibility detection
+- **Entrance**: Apple-style fade-in with upward movement
+- **Transitions**: `cubic-bezier(0.4, 0, 0.2, 1)` for smooth interactions
 
-### Performance
-- **Next.js 15**: Latest features for optimal performance
-- **Tailwind CSS 4**: Modern CSS framework with JIT compilation
-- **TypeScript**: Type safety and better developer experience
+## Adding Content
 
-## 📝 Content Sections
+### Content Sections
+Add new content sections in `src/components/ContentWindow.tsx`:
 
-The portfolio includes placeholder sections for:
-- **About**: Personal introduction
-- **CV**: Resume and experience
-- **Projects**: Portfolio projects
-- **LinkedIn**: Professional profile
-- **Map**: Location-based content
-- **Blog**: Articles and thoughts
-- **Collaborators**: Team and partnerships
-- **Press**: Media coverage
+```tsx
+<section id="your-section">
+  <h2>Your Section Title</h2>
+  <p>Your content here...</p>
+</section>
+```
 
-## 🎯 Future Enhancements
+### Navigation Items
+Update the sidebar navigation in `src/components/Sidebar.tsx` to include new sections.
 
-- [ ] Add actual content to placeholder sections
-- [ ] Implement dark mode toggle
-- [ ] Add contact form functionality
-- [ ] Optimize images and assets
-- [ ] Add analytics tracking
-- [ ] Implement SEO optimizations
+### Mobile Menu
+Update the mobile menu in `src/components/MobileMenuOverlay.tsx` to include new navigation items.
 
-## 📄 License
+## Deployment
+
+The project is ready for deployment on Vercel, Netlify, or any other Next.js-compatible platform.
+
+## License
 
 This project is private and proprietary.
+
+## Contact
+
+James Swinehart - [Your contact information]

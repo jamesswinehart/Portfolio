@@ -59,57 +59,27 @@ export default function ContentWindow() {
       <div className="scroll-content">
         <AboutContent />
 
-        {/* Placeholder sections for navigation */}
+        {/* Content Sections */}
+        {/* Add your content sections here with proper IDs for navigation */}
+        
+        {/* Example structure:
         <section id="cv">
-          <h2 className="text-2xl font-semibold mb-4">CV</h2>
-          <p>CV content coming soon...</p>
+          <h2>CV</h2>
+          <p>Your CV content here...</p>
         </section>
-
+        
         <section id="projects">
-          <h2 className="text-2xl font-semibold mb-4">Projects</h2>
-          <p>Projects content coming soon...</p>
+          <h2>Projects</h2>
+          <p>Your projects content here...</p>
         </section>
-
-        <section id="linkedin">
-          <h2 className="text-2xl font-semibold mb-4">LinkedIn</h2>
-          <p>LinkedIn content coming soon...</p>
-        </section>
-
-        <section id="map">
-          <h2 className="text-2xl font-semibold mb-4">Map</h2>
-          <p>Map content coming soon...</p>
-        </section>
-
-        <section id="blog">
-          <h2 className="text-2xl font-semibold mb-4">Blog</h2>
-          <p>Blog content coming soon...</p>
-        </section>
-
-        <section id="collaborators">
-          <h2 className="text-2xl font-semibold mb-4">Collaborators</h2>
-          <p>Collaborators content coming soon...</p>
-        </section>
-
-        <section id="press">
-          <h2 className="text-2xl font-semibold mb-4">Press</h2>
-          <p>Press content coming soon...</p>
-        </section>
+        */}
       </div>
 
-      {/* Fade overlays */}
+      {/* Top fade overlay */}
       <div 
         className="pointer-events-none absolute top-0 left-0 right-0 h-10 z-50"
         style={{ background: "linear-gradient(to bottom, #f5f5f7, transparent)" }} 
       />
-      {/* Side gradients disabled */}
-      {/* <div 
-        className="pointer-events-none absolute top-0 bottom-0 left-0 w-10 z-50"
-        style={{ background: "linear-gradient(to right, #f5f5f7, transparent)" }} 
-      />
-      <div 
-        className="pointer-events-none absolute top-0 bottom-0 right-3 w-10 z-50"
-        style={{ background: "linear-gradient(to left, #f5f5f7, transparent)" }} 
-      /> */}
     </div>
   );
 }
