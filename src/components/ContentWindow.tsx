@@ -101,14 +101,15 @@ export default function ContentWindow() {
         className="pointer-events-none absolute top-0 left-0 right-0 h-10 z-50"
         style={{ background: "linear-gradient(to bottom, #f5f5f7, transparent)" }} 
       />
-      <div 
+      {/* Side gradients disabled */}
+      {/* <div 
         className="pointer-events-none absolute top-0 bottom-0 left-0 w-10 z-50"
         style={{ background: "linear-gradient(to right, #f5f5f7, transparent)" }} 
       />
       <div 
         className="pointer-events-none absolute top-0 bottom-0 right-3 w-10 z-50"
         style={{ background: "linear-gradient(to left, #f5f5f7, transparent)" }} 
-      />
+      /> */}
     </div>
   );
 }

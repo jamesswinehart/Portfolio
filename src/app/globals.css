@@ -369,25 +369,11 @@ body {
 
   /* Mobile Gradients */
   .mobile-side-gradient-left {
-    position: fixed !important;
-    top: 94px !important;
-    left: 0 !important;
-    width: 40px !important;
-    height: calc(100vh - 94px) !important;
-    background: linear-gradient(to right, var(--background), transparent) !important;
-    z-index: 5 !important;
-    pointer-events: none !important;
+    display: none !important;
   }
 
   .mobile-side-gradient-right {
-    position: fixed !important;
-    top: 94px !important;
-    right: 0 !important;
-    width: 40px !important;
-    height: calc(100vh - 94px) !important;
-    background: linear-gradient(to left, var(--background), transparent) !important;
-    z-index: 5 !important;
-    pointer-events: none !important;
+    display: none !important;
   }
 
   .mobile-bottom-gradient {
