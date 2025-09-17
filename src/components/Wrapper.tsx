@@ -60,6 +60,7 @@ export default function Wrapper() {
         {/* Mobile Gradients */}
         <div className="mobile-side-gradient-left" />
         <div className="mobile-side-gradient-right" />
+        <div className="mobile-top-gradient" />
         <div className="mobile-bottom-gradient" />
 
         {/* Desktop Sidebar */}
@@ -76,10 +77,7 @@ export default function Wrapper() {
         <ContentWindow />
         
         {/* Bottom gradient overlay */}
-        <div 
-          className="bottom-gradient"
-          style={{ background: "linear-gradient(to top, #f5f5f7, transparent)" }} 
-        />
+        <div className="bottom-gradient" />
       </div>
     </VisibleSectionsContext.Provider>
   );

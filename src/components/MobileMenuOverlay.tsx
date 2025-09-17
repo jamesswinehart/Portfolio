@@ -19,24 +19,26 @@ const MENU_SECTIONS: MenuSection[] = [
     label: 'Everything',
     items: [
       { id: 'cv', label: 'CV' },
-      { id: 'linkedin', label: 'LinkedIn' },
       { id: 'projects', label: 'Projects' },
+      { id: 'writing', label: 'Writing' },
+      { id: 'art', label: 'Art' },
+      { id: 'hungrytiger', label: 'The Hungry Tiger' },
     ]
   },
   {
     id: 'everywhere',
     label: 'Everywhere',
     items: [
-      { id: 'map', label: 'Map' },
-      { id: 'blog', label: 'Blog' },
+      { id: 'linkedin', label: 'LinkedIn' },
+      { id: 'beli', label: 'Beli' },
     ]
   },
   {
     id: 'everyone',
     label: 'Everyone',
     items: [
-      { id: 'collaborators', label: 'Collaborators' },
-      { id: 'press', label: 'Press' },
+      { id: 'instagram', label: 'Instagram' },
+      { id: 'contactme', label: 'Contact Me' },
     ]
   }
 ];

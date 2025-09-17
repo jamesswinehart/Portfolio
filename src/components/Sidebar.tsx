@@ -24,25 +24,25 @@ const MENU_SECTIONS: MenuSectionData[] = [
     id: 'everything',
     label: 'Everything',
     items: [
-      { id: 'cv', label: 'CV', onClick: () => document.getElementById("cv")?.scrollIntoView({ behavior: "smooth" }) },
-      { id: 'linkedin', label: 'LinkedIn' },
-      { id: 'projects', label: 'Projects' },
+      { id: 'projects', label: 'Projects', onClick: () => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }) },
+      { id: 'writing', label: 'Writing', onClick: () => document.getElementById("writing")?.scrollIntoView({ behavior: "smooth" }) },
+      { id: 'hungrytiger', label: 'The Hungry Tiger', onClick: () => document.getElementById("hungrytiger")?.scrollIntoView({ behavior: "smooth" }) },
     ]
   },
   {
     id: 'everywhere',
     label: 'Everywhere',
     items: [
-      { id: 'map', label: 'Map' },
-      { id: 'blog', label: 'Blog' },
+      { id: 'linkedin', label: 'LinkedIn', onClick: () => document.getElementById("linkedin")?.scrollIntoView({ behavior: "smooth" }) },
+      { id: 'beli', label: 'Beli', onClick: () => document.getElementById("beli")?.scrollIntoView({ behavior: "smooth" }) },
     ]
   },
   {
     id: 'everyone',
     label: 'Everyone',
     items: [
-      { id: 'collaborators', label: 'Collaborators' },
-      { id: 'press', label: 'Press' },
+      { id: 'instagram', label: 'Instagram', onClick: () => document.getElementById("instagram")?.scrollIntoView({ behavior: "smooth" }) },
+      { id: 'contactme', label: 'Contact Me', onClick: () => document.getElementById("contactme")?.scrollIntoView({ behavior: "smooth" }) },
     ]
   }
 ];
@@ -121,16 +121,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div 
-      className="absolute flex flex-col items-start bg-[var(--background)]"
-      style={{
-        top: "calc(50% - 100px)",
-        left: "0",
-        width: "176px",
-        maxHeight: "calc(100vh / 1.6 - 120px)",
-        overflowY: "auto",
-      }}
-    >
+    <div className="sidebar">
       <div className="mt-8 flex flex-col w-full space-y-4">
         {MENU_SECTIONS.map((section) => (
           <MenuSection

@@ -2,7 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { useVisibleSections } from "./Wrapper";
-import AboutContent from "./ContentBlocks/AboutContent";
+import About from "./ContentBlocks/Everything/About";
+import Projects from "./ContentBlocks/Everything/Projects";
+import Writing from "./ContentBlocks/Everything/Writing";
+import HungryTiger from "./ContentBlocks/Everything/HungryTiger";
+import LinkedIn from "./ContentBlocks/Everywhere/LinkedIn";
+import Beli from "./ContentBlocks/Everywhere/Beli";
+import Instagram from "./ContentBlocks/Everyone/Instagram";
+import ContactMe from "./ContentBlocks/Everyone/ContactMe";
 
 // Constants
 const OBSERVER_OPTIONS = {
@@ -56,30 +63,25 @@ export default function ContentWindow() {
 
   return (
     <div className="scroll-frame">
+      {/* Top fade overlay (pinned to top of content window) */}
+      <div className="top-gradient" />
+
       <div className="scroll-content">
-        <AboutContent />
+        
+        {/* Everything */}
+        <About />
+        <Projects />
+        <Writing />
+        <HungryTiger />
 
-        {/* Content Sections */}
-        {/* Add your content sections here with proper IDs for navigation */}
-        
-        {/* Example structure:
-        <section id="cv">
-          <h2>CV</h2>
-          <p>Your CV content here...</p>
-        </section>
-        
-        <section id="projects">
-          <h2>Projects</h2>
-          <p>Your projects content here...</p>
-        </section>
-        */}
+        {/* Everywhere */}
+        <LinkedIn />
+        <Beli />
+
+        {/* Everyone */}
+        <Instagram />
+        <ContactMe />
       </div>
-
-      {/* Top fade overlay */}
-      <div 
-        className="pointer-events-none absolute top-0 left-0 right-0 h-10 z-50"
-        style={{ background: "linear-gradient(to bottom, #f5f5f7, transparent)" }} 
-      />
     </div>
   );
 }
