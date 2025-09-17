@@ -18,10 +18,8 @@ const MENU_SECTIONS: MenuSection[] = [
     id: 'everything',
     label: 'Everything',
     items: [
-      { id: 'cv', label: 'CV' },
       { id: 'projects', label: 'Projects' },
       { id: 'writing', label: 'Writing' },
-      { id: 'art', label: 'Art' },
       { id: 'hungrytiger', label: 'The Hungry Tiger' },
     ]
   },
