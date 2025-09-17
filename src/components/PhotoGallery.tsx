@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { StaticImageData } from "next/image";
 
 interface PhotoGalleryItem {
   id: number;
   title: string;
-  image: any; // StaticImageData from Next.js
+  image: StaticImageData;
 }
 
 interface PhotoGalleryProps {
@@ -121,7 +122,7 @@ export default function PhotoGallery({
           <div 
             key={item.id} 
             className="photo-gallery-item"
-            ref={(el) => (itemRefs.current[index] = el)}
+            ref={(el) => { itemRefs.current[index] = el; }}
             onClick={() => handleImageClick(index)}
           >
             <Image
