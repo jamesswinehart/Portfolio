@@ -13,10 +13,10 @@ import foodwaste1 from "../../../assets/images/foodwastescore/welcome.png";
 import foodwaste2 from "../../../assets/images/foodwastescore/dishselector.png";
 import foodwaste3 from "../../../assets/images/foodwastescore/score.png";
 import foodwaste4 from "../../../assets/images/foodwastescore/leaderboard.png";
-import beliCrawl1 from "../../../assets/images/belicrawl/beliCrawl1.png";
-import beliCrawl2 from "../../../assets/images/belicrawl/beliCrawl2.png";
-import beliCrawl3 from "../../../assets/images/belicrawl/beliCrawl3.png";
-import beliCrawl4 from "../../../assets/images/belicrawl/beliCrawl4.png";
+import beliCrawl1 from "../../../assets/images/beliCrawl/beliCrawl1.png";
+import beliCrawl2 from "../../../assets/images/beliCrawl/beliCrawl2.png";
+import beliCrawl3 from "../../../assets/images/beliCrawl/beliCrawl3.png";
+import beliCrawl4 from "../../../assets/images/beliCrawl/beliCrawl4.png";
 
 
 export default function Projects() {
