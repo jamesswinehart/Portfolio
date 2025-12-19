@@ -20,7 +20,6 @@ import beliCrawl4 from "../../../assets/images/beliCrawl/beliCrawl4.png";
 
 
 export default function Projects() {
-  // Placeholder project data - replace with real projects later
   const knowbodyProject = [
     { id: 1, title: "Knowbody Feed", image: knowbody1 },
     { id: 2, title: "Knowbody Create", image: knowbody2 },
