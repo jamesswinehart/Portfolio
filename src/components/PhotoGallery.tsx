@@ -8,7 +8,8 @@ import { StaticImageData } from "next/image";
 interface PhotoGalleryItem {
   id: number;
   title: string;
-  image: StaticImageData;
+  image?: StaticImageData;
+  videoUrl?: string;
 }
 
 interface PhotoGalleryProps {
@@ -19,8 +20,8 @@ interface PhotoGalleryProps {
 
 export default function PhotoGallery({ 
   items, 
-  imageWidth = 200, 
-  imageHeight = 250 
+  imageWidth = 300, 
+  imageHeight = 400 
 }: PhotoGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
@@ -103,7 +104,7 @@ export default function PhotoGallery({
     setTimeout(() => {
       setEnlargedImageIndex(null);
       setIsClosing(false);
-    }, 300); // Match the CSS animation duration
+    }, 300);
   };
 
   // ESC to close
@@ -123,15 +124,26 @@ export default function PhotoGallery({
             key={item.id} 
             className="photo-gallery-item"
             ref={(el) => { itemRefs.current[index] = el; }}
-            onClick={() => handleImageClick(index)}
+            onClick={() => item.image && handleImageClick(index)}
           >
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={imageWidth}
-              height={imageHeight}
-              style={{ objectFit: 'cover', cursor: 'pointer' }}
-            />
+            {item.videoUrl ? (
+              <div className="gallery-video-container">
+                <iframe
+                  src={item.videoUrl}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={item.title}
+                />
+              </div>
+            ) : item.image ? (
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={imageWidth}
+                height={imageHeight}
+                className="gallery-image"
+              />
+            ) : null}
           </div>
         ))}
       </div>
@@ -146,7 +158,7 @@ export default function PhotoGallery({
       </div>
 
       {/* Clean Lightbox - Rendered as Portal */}
-      {enlargedImageIndex !== null && typeof window !== 'undefined' && createPortal(
+      {enlargedImageIndex !== null && typeof window !== 'undefined' && items[enlargedImageIndex].image && createPortal(
         <div className={`lightbox ${isClosing ? 'lightbox-closing' : ''}`} onClick={closeLightbox}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <button className="lightbox-close" onClick={closeLightbox}>
@@ -154,7 +166,7 @@ export default function PhotoGallery({
               <span></span>
             </button>
             <Image
-              src={items[enlargedImageIndex].image}
+              src={items[enlargedImageIndex].image!}
               alt={items[enlargedImageIndex].title}
               width={1200}
               height={800}
