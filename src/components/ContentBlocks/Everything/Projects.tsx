@@ -78,7 +78,7 @@ export default function Projects() {
 
       <h3>Avaline</h3>
       <PhotoGallery items={avalineProject} />
-      <p>Avaline is a concert ticket web-scraper built with React that pulled live data from StubHub and SeatGeek to deliver real-time updates, price tracking, and AI-powered purchasing advice. It helped me and dozens of other Oasis fans secure tickets to the band's East Rutherford reunion concert.</p>
+      <p>Avaline is a concert ticket web-scraper built with React that pulled live data from StubHub and SeatGeek to deliver real-time updates, price tracking, and AI-powered purchasing advice. It helped me and dozens of other Oasis fans secure tickets to the band&apos;s East Rutherford reunion concert.</p>
       <p>With the show now behind us, Avaline&apos;s price-tracking features have gone quiet. But the app allowed me to attend the concert (which was awesome), and you can still chat with the British AI assistant Avaline <a href="https://avaline.vercel.app" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
 

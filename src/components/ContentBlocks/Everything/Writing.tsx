@@ -3,6 +3,11 @@ import Section from "../Section";
 export default function Writing() {
   const articles = [
     {
+      title: "Walk-On Tradition Helps Keep Rowing Teams Afloat",
+      source: "Princeton Alumni Weekly",
+      url: "https://paw.princeton.edu/article/walk-tradition-helps-keep-rowing-teams-afloat",
+    },
+    {
       title: "A Behind-The-Scenes View of Managing Princeton Reunions",
       source: "Princeton Alumni Weekly",
       url: "https://paw.princeton.edu/article/behind-scenes-view-managing-princeton-reunions",
