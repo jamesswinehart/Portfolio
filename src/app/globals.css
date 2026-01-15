@@ -241,27 +241,11 @@ body {
 }
 
 .photo-gallery::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 0px;
-  width: 4px;
-  height: calc(100% - 20px);
-  background: linear-gradient(to right, var(--background), transparent);
-  z-index: 10;
-  pointer-events: none;
+  display: none;
 }
 
 .photo-gallery::after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  right: 0;
-  width: 4px;
-  height: calc(100% - 24px);
-  background: linear-gradient(to left, var(--background), transparent);
-  z-index: 10;
-  pointer-events: none;
+  display: none;
 }
 
 .photo-gallery-container {
