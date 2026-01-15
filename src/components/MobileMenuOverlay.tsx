@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useVisibleSections } from './Wrapper';
 
 interface MobileMenuOverlayProps {
   isOpen: boolean;
@@ -48,6 +49,7 @@ export default function MobileMenuOverlay({
   onNavItemClick 
 }: MobileMenuOverlayProps) {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  const { visibleSections } = useVisibleSections();
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections(prev => {
@@ -66,11 +68,24 @@ export default function MobileMenuOverlay({
     onClose();
   };
 
+  const getOpacity = (sectionId: string) => {
+    if (visibleSections.has(sectionId)) {
+      return 1;
+    }
+    return 0.67;
+  };
+
+  const isAboutVisible = visibleSections.has('about');
+
   return (
     <div className={`mobile-menu-overlay ${isOpen ? 'open' : ''}`}>
       <ul className="mobile-menu">
         <li>
-          <a href="#" onClick={(e) => { e.preventDefault(); onAboutClick(); }}>
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); onAboutClick(); }}
+            style={{ opacity: isAboutVisible ? 1 : 0.67 }}
+          >
             About
           </a>
         </li>
@@ -88,7 +103,11 @@ export default function MobileMenuOverlay({
             <ul className="submenu">
               {section.items.map((item) => (
                 <li key={item.id}>
-                  <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick(item.id); }}>
+                  <a 
+                    href="#" 
+                    onClick={(e) => { e.preventDefault(); handleNavClick(item.id); }}
+                    style={{ opacity: getOpacity(item.id) }}
+                  >
                     {item.label}
                   </a>
                 </li>
