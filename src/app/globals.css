@@ -353,6 +353,79 @@ body {
   background-color: var(--foreground);
 }
 
+/* ===== Custom Gallery Sizes ===== */
+/* Small size (150px height) */
+.photo-gallery.gallery-small .photo-gallery-item,
+.photo-gallery.gallery-small .photo-gallery-item > span {
+  height: 150px;
+}
+
+.photo-gallery.gallery-small .gallery-image,
+.photo-gallery.gallery-small .photo-gallery-item img,
+.photo-gallery.gallery-small .photo-gallery-item span img {
+  height: 150px;
+  max-height: 150px;
+}
+
+.photo-gallery.gallery-small .gallery-video-container,
+.photo-gallery.gallery-small .gallery-video-container iframe {
+  height: 150px;
+}
+
+/* Medium size (250px height) */
+.photo-gallery.gallery-medium .photo-gallery-item,
+.photo-gallery.gallery-medium .photo-gallery-item > span {
+  height: 250px;
+}
+
+.photo-gallery.gallery-medium .gallery-image,
+.photo-gallery.gallery-medium .photo-gallery-item img,
+.photo-gallery.gallery-medium .photo-gallery-item span img {
+  height: 250px;
+  max-height: 250px;
+}
+
+.photo-gallery.gallery-medium .gallery-video-container,
+.photo-gallery.gallery-medium .gallery-video-container iframe {
+  height: 250px;
+}
+
+/* Large size (300px height) */
+.photo-gallery.gallery-large .photo-gallery-item,
+.photo-gallery.gallery-large .photo-gallery-item > span {
+  height: 300px;
+}
+
+.photo-gallery.gallery-large .gallery-image,
+.photo-gallery.gallery-large .photo-gallery-item img,
+.photo-gallery.gallery-large .photo-gallery-item span img {
+  height: 300px;
+  max-height: 300px;
+}
+
+.photo-gallery.gallery-large .gallery-video-container,
+.photo-gallery.gallery-large .gallery-video-container iframe {
+  height: 300px;
+}
+
+/* Extra large size (400px height) */
+.photo-gallery.gallery-xlarge .photo-gallery-item,
+.photo-gallery.gallery-xlarge .photo-gallery-item > span {
+  height: 400px;
+}
+
+.photo-gallery.gallery-xlarge .gallery-image,
+.photo-gallery.gallery-xlarge .photo-gallery-item img,
+.photo-gallery.gallery-xlarge .photo-gallery-item span img {
+  height: 400px;
+  max-height: 400px;
+}
+
+.photo-gallery.gallery-xlarge .gallery-video-container,
+.photo-gallery.gallery-xlarge .gallery-video-container iframe {
+  height: 400px;
+}
+
 /* ===== Clean Lightbox ===== */
 .lightbox {
   position: fixed;

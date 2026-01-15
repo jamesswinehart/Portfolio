@@ -58,25 +58,25 @@ export default function Projects() {
       <br></br>
 
       <h3>The Food Waste Score</h3>
-      <PhotoGallery items={foodWasteProject} />
+      <PhotoGallery items={foodWasteProject} className="gallery-medium" />
       <p>The Food Waste Score (FWS) is an HCI-driven system designed to gamify sustainable dining through real-time feedback on plate waste. It calculates a dynamic &quot;waste score,&quot; similar to Whoop&apos;s &quot;recovery score&quot; or Garmin&apos;s &quot;body battery,&quot; to encourage more mindful eating in university dining halls.</p>
       <p>The project integrates behavioral insights from human-computer interaction to make sustainability measurable and motivating. Piloted at Princeton as a research project, FWS demonstrates how &quot;score feedback&quot; can reduce food waste and encourage more sustainable dining choices.</p>
       <p>You can read the in-review research paper <a href="/Team%204%20-%20Final%20Paper.pdf" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
 
       <h3>Beli Crawl</h3>
-      <PhotoGallery items={beliCrawlProject} />
+      <PhotoGallery items={beliCrawlProject} className="gallery-large" />
       <p>Beli Crawl is an app that helps users turn their saved and recommended restaurants from my favorite app, Beli, into a curated neighborhood “crawl.” It aggregates restaurants across Beli’s Want to Try and Recs into a single flow, then generates a shareable Google Maps walking route, making it easy to plan and share a full day of eating in one place. Built as a proof of concept using my own Princeton and New York data, Beli Crawl explores how Beli could support more intentional, social, and place-based food discovery. You can try it <a href="https://belicrawl.vercel.app" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
 
       <h3>KnowBody</h3>
-      <PhotoGallery items={knowbodyProject} />
+      <PhotoGallery items={knowbodyProject} className="gallery-large" />
       <p>KnowBody is a full-stack, HIPAA-compliant iOS app built with Swift and Firebase. It functions like a social network for physicians, allowing primary care doctors to instantly ping local specialists for free, on-demand medical advice.</p>
       <p>The app was made in collaboration with MercyMed of Columbus, a non-profit healthcare clinic providing high-quality, low-cost healthcare to the underserved. The project is currently in development and moving toward official, legal recognition as a secure medical platform.</p>
       <br></br>
 
       <h3>Avaline</h3>
-      <PhotoGallery items={avalineProject} />
+      <PhotoGallery items={avalineProject} className="gallery-large" />
       <p>Avaline is a concert ticket web-scraper built with React that pulled live data from StubHub and SeatGeek to deliver real-time updates, price tracking, and AI-powered purchasing advice. It helped me and dozens of other Oasis fans secure tickets to the band&apos;s East Rutherford reunion concert.</p>
       <p>With the show now behind us, Avaline&apos;s price-tracking features have gone quiet. But the app allowed me to attend the concert (which was awesome), and you can still chat with the British AI assistant Avaline <a href="https://avaline.vercel.app" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
