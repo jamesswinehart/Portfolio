@@ -241,11 +241,27 @@ body {
 }
 
 .photo-gallery::before {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  width: 4px;
+  height: calc(100% - 20px);
+  background: linear-gradient(to right, var(--background), transparent);
+  z-index: 10;
+  pointer-events: none;
 }
 
 .photo-gallery::after {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 4px;
+  height: calc(100% - 24px);
+  background: linear-gradient(to left, var(--background), transparent);
+  z-index: 10;
+  pointer-events: none;
 }
 
 .photo-gallery-container {
@@ -276,6 +292,8 @@ body {
   justify-content: center;
   overflow: visible;
   box-shadow: none;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .photo-gallery-item > span {

@@ -16,14 +16,12 @@ interface PhotoGalleryProps {
   items: PhotoGalleryItem[];
   imageWidth?: number;
   imageHeight?: number;
-  className?: string;
 }
 
 export default function PhotoGallery({ 
   items, 
   imageWidth = 300, 
-  imageHeight = 400,
-  className = ''
+  imageHeight = 400 
 }: PhotoGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
@@ -119,7 +117,7 @@ export default function PhotoGallery({
   }, []);
 
   return (
-    <div className={`photo-gallery ${className}`}>
+    <div className="photo-gallery">
       <div className="photo-gallery-container" ref={containerRef}>
         {items.map((item, index) => (
           <div 
