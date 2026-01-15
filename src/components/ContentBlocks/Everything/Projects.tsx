@@ -54,7 +54,7 @@ export default function Projects() {
     <Section id="projects" title="Everything I've Developed">
       <p>My projects are inspired by the intersection of tech and creativity. My work tends to play around with fun ideas, design-obsessed interfaces, and interactive experiences.</p>
       <p>I design through building, moving beyond prototyping and actually implementing ideas to showcase real, functional interactions that test how people actually engage with my technology.</p>
-      <p>I&apos;m super interested in HCI, AI, and hospitality techn. Feel free to check out some of my work below. You can also visit my Github <a href="https://github.com/jamesswinehart" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
+      <p>I&apos;m super interested in HCI, AI, and hospitality tech. Feel free to check out some of my work below. You can also visit my Github <a href="https://github.com/jamesswinehart" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
 
       <h3>The Food Waste Score</h3>
