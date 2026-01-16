@@ -20,6 +20,7 @@ const MENU_SECTIONS: MenuSection[] = [
     label: 'Everything',
     items: [
       { id: 'projects', label: 'Projects' },
+      { id: 'marketing', label: 'Marketing' },
       { id: 'writing', label: 'Writing' },
       { id: 'hungrytiger', label: 'The Hungry Tiger' },
     ]

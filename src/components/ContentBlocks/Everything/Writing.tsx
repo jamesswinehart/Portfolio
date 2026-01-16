@@ -1,47 +1,53 @@
 import Section from "../Section";
+import PhotoGallery from "../../PhotoGallery";
+import rowingImage from "../../../assets/writing/OTC_Student Dispatch Rowing.jpg";
+import reunionsImage from "../../../assets/writing/OTC_Studetn Dispatch Working Reunions.jpg";
+import chickenTendersImage from "../../../assets/writing/OTC_Student Dispatch Late Meal.jpg";
+import bickerImage from "../../../assets/writing/MicrosoftTeams-image (36).png";
+import placeholderImage from "../../../assets/writing/Georgia-state-capitol-dome.jpg";
 
 export default function Writing() {
-  const articles = [
+  const writingItems = [
     {
+      id: 1,
       title: "Walk-On Tradition Helps Keep Rowing Teams Afloat",
-      source: "Princeton Alumni Weekly",
+      image: rowingImage,
       url: "https://paw.princeton.edu/article/walk-tradition-helps-keep-rowing-teams-afloat",
+      source: "Princeton Alumni Weekly",
     },
     {
+      id: 2,
       title: "A Behind-The-Scenes View of Managing Princeton Reunions",
-      source: "Princeton Alumni Weekly",
+      image: reunionsImage,
       url: "https://paw.princeton.edu/article/behind-scenes-view-managing-princeton-reunions",
+      source: "Princeton Alumni Weekly",
     },
     {
+      id: 3,
       title: "A Lighter View of Bicker?",
-      source: "Princeton Alumni Weekly",
+      image: bickerImage,
       url: "https://paw.princeton.edu/article/lighter-view-bicker-maybe-eating-club-culture-should-chill-out",
-    },
-    {
-      title: "Campus Life Is Alive and Well — and Running on Chicken Tenders",
       source: "Princeton Alumni Weekly",
-      url: "https://paw.princeton.edu/article/campus-life-alive-and-well-and-running-chicken-tenders",
     },
     {
-      title:
-        "Protecting the First Amendment in Stopping Cop City: Unconstitutional Overbreadth in Georgia’s RICO Laws",
-      source: "Princeton Legal Journal",
+      id: 4,
+      title: "Campus Life Is Alive and Well — and Running on Chicken Tenders",
+      image: chickenTendersImage,
+      url: "https://paw.princeton.edu/article/campus-life-alive-and-well-and-running-chicken-tenders",
+      source: "Princeton Alumni Weekly",
+    },
+    {
+      id: 5,
+      title: "Protecting the First Amendment in Stopping Cop City: Unconstitutional Overbreadth in Georgia's RICO Laws",
+      image: placeholderImage,
       url: "https://legaljournal.princeton.edu/protecting-the-first-amendment-in-stopping-cop-city-unconstitutional-overbreadth-in-georgias-rico-laws/",
+      source: "Princeton Legal Journal",
     },
   ];
 
   return (
     <Section id="writing" title="Everything I've Written">
-      {articles.map((article) => (
-        <div key={article.title}>
-          <h3>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              {article.title}
-            </a>
-          </h3>
-          <p><em>{article.source}</em></p>
-        </div>
-      ))}
+      <PhotoGallery items={writingItems} className="gallery-medium" showCaptions={true} />
     </Section>
   );
 }

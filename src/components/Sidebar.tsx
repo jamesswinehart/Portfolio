@@ -25,6 +25,7 @@ const MENU_SECTIONS: MenuSectionData[] = [
     label: 'Everything',
     items: [
       { id: 'projects', label: 'Projects', onClick: () => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }) },
+      { id: 'marketing', label: 'Marketing', onClick: () => document.getElementById("marketing")?.scrollIntoView({ behavior: "smooth" }) },
       { id: 'writing', label: 'Writing', onClick: () => document.getElementById("writing")?.scrollIntoView({ behavior: "smooth" }) },
       { id: 'hungrytiger', label: 'The Hungry Tiger', onClick: () => document.getElementById("hungrytiger")?.scrollIntoView({ behavior: "smooth" }) },
     ]

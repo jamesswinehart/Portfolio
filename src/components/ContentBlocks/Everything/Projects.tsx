@@ -54,7 +54,7 @@ export default function Projects() {
     <Section id="projects" title="Everything I've Developed">
       <p>My projects are inspired by the intersection of tech and creativity. My work tends to play around with fun ideas, design-obsessed interfaces, and interactive experiences.</p>
       <p>I design through building, moving beyond prototyping and actually implementing ideas to showcase real, functional interactions that test how people actually engage with my technology.</p>
-      <p>I&apos;m super interested in HCI, AI, and hospitality tech. Feel free to check out some of my work below. You can also visit my Github <a href="https://github.com/jamesswinehart" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
+      <p>I&apos;m especially interested in HCI, AI, and hospitality tech. Feel free to check out some of my work below. You can also visit my Github <a href="https://github.com/jamesswinehart" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
 
       <h3>The Food Waste Score</h3>
@@ -65,12 +65,12 @@ export default function Projects() {
       <br></br>
 
       <h3>Beli Crawl</h3>
-      <PhotoGallery items={beliCrawlProject} className="gallery-large" />
+      <PhotoGallery items={beliCrawlProject} className="gallery-xlarge" />
       <p>Beli Crawl is an app that helps users turn their saved and recommended restaurants from my favorite app, Beli, into a curated neighborhood “crawl.” It aggregates restaurants across Beli’s Want to Try and Recs into a single flow, then generates a shareable Google Maps walking route, making it easy to plan and share a full day of eating in one place. Built as a proof of concept using my own Princeton and New York data, Beli Crawl explores how Beli could support more intentional, social, and place-based food discovery. You can try it <a href="https://belicrawl.vercel.app" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline', fontWeight: 600}}>here.</a></p>
       <br></br>
 
       <h3>KnowBody</h3>
-      <PhotoGallery items={knowbodyProject} className="gallery-large" />
+      <PhotoGallery items={knowbodyProject} className="gallery-xlarge" />
       <p>KnowBody is a full-stack, HIPAA-compliant iOS app built with Swift and Firebase. It functions like a social network for physicians, allowing primary care doctors to instantly ping local specialists for free, on-demand medical advice.</p>
       <p>The app was made in collaboration with MercyMed of Columbus, a non-profit healthcare clinic providing high-quality, low-cost healthcare to the underserved. The project is currently in development and moving toward official, legal recognition as a secure medical platform.</p>
       <br></br>

@@ -8,8 +8,10 @@ import { StaticImageData } from "next/image";
 interface PhotoGalleryItem {
   id: number;
   title: string;
-  image?: StaticImageData;
+  image?: StaticImageData | string;
   videoUrl?: string;
+  source?: string;
+  url?: string;
 }
 
 interface PhotoGalleryProps {
@@ -17,13 +19,15 @@ interface PhotoGalleryProps {
   imageWidth?: number;
   imageHeight?: number;
   className?: string;
+  showCaptions?: boolean;
 }
 
 export default function PhotoGallery({ 
   items, 
   imageWidth = 300, 
   imageHeight = 400,
-  className = ''
+  className = '',
+  showCaptions = false
 }: PhotoGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
@@ -97,7 +101,13 @@ export default function PhotoGallery({
 
   // Handle image click
   const handleImageClick = (index: number) => {
-    setEnlargedImageIndex(index);
+    const item = items[index];
+    // If item has a URL, navigate to it instead of opening lightbox
+    if (item.url) {
+      window.open(item.url, '_blank', 'noopener,noreferrer');
+    } else {
+      setEnlargedImageIndex(index);
+    }
   };
 
   // Close lightbox
@@ -143,9 +153,29 @@ export default function PhotoGallery({
                 alt={item.title}
                 width={imageWidth}
                 height={imageHeight}
-                className="gallery-image"
+                className={`gallery-image ${item.url ? 'gallery-image-clickable' : ''}`}
               />
             ) : null}
+            {showCaptions && (item.title || item.source) && (
+              <div className="gallery-item-caption">
+                {item.url ? (
+                  <a 
+                    href={item.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="gallery-item-title"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  <div className="gallery-item-title">{item.title}</div>
+                )}
+                {item.source && (
+                  <div className="gallery-item-source">{item.source}</div>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>

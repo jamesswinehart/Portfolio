@@ -223,7 +223,6 @@ body {
 .scroll-content section h3 a {
   color: inherit;
   text-decoration: underline;
-  font-family: Georgia, serif;
 }
 
 .scroll-content section p {
@@ -286,10 +285,11 @@ body {
 .photo-gallery-item {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  height: 200px;
+  min-height: 200px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   overflow: visible;
   box-shadow: none;
   padding-left: 4px;
@@ -314,6 +314,10 @@ body {
   width: auto;
   object-fit: contain;
   display: block;
+}
+
+.gallery-image-clickable {
+  cursor: pointer;
 }
 
 .gallery-video-container {
@@ -355,9 +359,47 @@ body {
   background-color: var(--foreground);
 }
 
+/* ===== Gallery Item Captions ===== */
+.gallery-item-caption {
+  margin-top: 12px;
+  text-align: left;
+  max-width: 500px;
+  padding: 0;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.gallery-item-title {
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.374px;
+  font-weight: 600;
+  color: var(--foreground);
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.gallery-item-title:hover {
+  opacity: 0.8;
+}
+
+.gallery-item-source {
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.374px;
+  color: var(--foreground);
+  opacity: 0.67;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
 /* ===== Custom Gallery Sizes ===== */
 /* Small size (150px height) */
-.photo-gallery.gallery-small .photo-gallery-item,
+.photo-gallery.gallery-small .photo-gallery-item {
+  min-height: 150px;
+}
+
 .photo-gallery.gallery-small .photo-gallery-item > span {
   height: 150px;
 }
@@ -375,7 +417,10 @@ body {
 }
 
 /* Medium size (250px height) */
-.photo-gallery.gallery-medium .photo-gallery-item,
+.photo-gallery.gallery-medium .photo-gallery-item {
+  min-height: 250px;
+}
+
 .photo-gallery.gallery-medium .photo-gallery-item > span {
   height: 250px;
 }
@@ -393,7 +438,10 @@ body {
 }
 
 /* Large size (300px height) */
-.photo-gallery.gallery-large .photo-gallery-item,
+.photo-gallery.gallery-large .photo-gallery-item {
+  min-height: 300px;
+}
+
 .photo-gallery.gallery-large .photo-gallery-item > span {
   height: 300px;
 }
@@ -411,7 +459,10 @@ body {
 }
 
 /* Extra large size (400px height) */
-.photo-gallery.gallery-xlarge .photo-gallery-item,
+.photo-gallery.gallery-xlarge .photo-gallery-item {
+  min-height: 400px;
+}
+
 .photo-gallery.gallery-xlarge .photo-gallery-item > span {
   height: 400px;
 }

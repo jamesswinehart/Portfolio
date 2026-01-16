@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useVisibleSections } from "./Wrapper";
 import About from "./ContentBlocks/Everything/About";
 import Projects from "./ContentBlocks/Everything/Projects";
+import Marketing from "./ContentBlocks/Everything/Marketing";
 import Writing from "./ContentBlocks/Everything/Writing";
 import HungryTiger from "./ContentBlocks/Everything/HungryTiger";
 import LinkedIn from "./ContentBlocks/Everywhere/LinkedIn";
@@ -71,6 +72,7 @@ export default function ContentWindow() {
         {/* Everything */}
         <About />
         <Projects />
+        <Marketing />
         <Writing />
         <HungryTiger />
 
