@@ -17,7 +17,7 @@ export default function Writing() {
     },
     {
       id: 2,
-      title: "A Behind-The-Scenes View of Managing Princeton Reunions",
+      title: "A Behind-the-Scenes View of Managing Princeton Reunions",
       image: reunionsImage,
       url: "https://paw.princeton.edu/article/behind-scenes-view-managing-princeton-reunions",
       source: "Princeton Alumni Weekly",

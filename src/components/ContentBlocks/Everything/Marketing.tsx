@@ -33,7 +33,7 @@ export default function Marketing() {
 
       <h3>The Daily Princetonian App</h3>
       <PhotoGallery items={dailyPrincetonianApp} className="gallery-large" />
-      <p>The Daily Princetonian App allows users to find out what's for lunch, where the best parties are, and what's happening Princeton's campus at large. My campaign for this app took inspiration from early Apple campaigns. Like the firm once promoted, simplicity remains the ultimate sophistication.</p>
+      <p>The Daily Princetonian App allows users to find out what's for lunch, where the best parties are, and what's happening on Princeton's campus at large. My campaign for this app took inspiration from early Apple campaigns. Like the firm once promoted, simplicity remains the ultimate sophistication.</p>
       <br></br>
 
       <h3>The Daily Princetonian Print Subscriptions</h3>
