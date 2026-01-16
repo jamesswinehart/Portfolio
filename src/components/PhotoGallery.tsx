@@ -134,7 +134,7 @@ export default function PhotoGallery({
         {items.map((item, index) => (
           <div 
             key={item.id} 
-            className="photo-gallery-item"
+            className={`photo-gallery-item ${item.url ? 'photo-gallery-item-clickable' : ''}`}
             ref={(el) => { itemRefs.current[index] = el; }}
             onClick={() => item.image && handleImageClick(index)}
           >
