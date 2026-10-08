@@ -217,7 +217,7 @@ export default function ConnectionsGame({
     >
       <div className="text-center mt-3">
         <h1 className="text-4xl font-black tracking-wide text-black">
-          Connections
+          Connectegories
         </h1>
         <p className="text-base text-black mt-1">
           Create four groups of four!
