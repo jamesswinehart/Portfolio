@@ -45,18 +45,38 @@ export default function ConnectionsGame({
   // horizontal padding) so all tiles share one uniform width with no overflow.
   // Measured from real rendered DOM nodes (below) rather than estimated with
   // `ch` units, since `ch` is unreliable to reproduce identically across
-  // separate elements once font-weight/letter-spacing are involved.
+  // separate elements once font-weight/letter-spacing are involved. If the
+  // ideal width doesn't fit the current viewport (narrow phones), both the
+  // tile width and font size are scaled down together so the whole board
+  // always fits on screen instead of overflowing.
   const measureRef = useRef<HTMLDivElement>(null);
   const [tileWidthPx, setTileWidthPx] = useState(140);
+  const [tileFontPx, setTileFontPx] = useState(16);
   useEffect(() => {
     function measure() {
       const container = measureRef.current;
       if (!container) return;
+
+      const viewportWidth = window.innerWidth;
+      const baseFontPx = viewportWidth >= 640 ? 16 : 14;
+      container.style.fontSize = `${baseFontPx}px`;
+
       let max = 0;
       container.querySelectorAll("span").forEach((el) => {
         max = Math.max(max, el.getBoundingClientRect().width);
       });
-      if (max > 0) setTileWidthPx(Math.ceil(max) + 32);
+      if (max <= 0) return;
+
+      const idealTileWidth = Math.ceil(max) + 32;
+      const pagePadding = 32; // px-4 on each side of the page container
+      const gapTotal = 24; // 3 gaps of 8px between 4 tiles
+      const maxTileWidth = Math.floor(
+        (viewportWidth - pagePadding - gapTotal) / 4
+      );
+
+      const scale = Math.min(1, maxTileWidth / idealTileWidth);
+      setTileWidthPx(Math.floor(idealTileWidth * scale));
+      setTileFontPx(Math.floor(baseFontPx * scale));
     }
     measure();
     window.addEventListener("resize", measure);
@@ -228,10 +248,7 @@ export default function ConnectionsGame({
           style={{ top: -9999, left: -9999, visibility: "hidden" }}
         >
           {allWords.map((w) => (
-            <span
-              key={w}
-              className="font-black tracking-wide text-sm sm:text-base whitespace-nowrap"
-            >
+            <span key={w} className="font-black tracking-wide whitespace-nowrap">
               {w}
             </span>
           ))}
@@ -242,17 +259,16 @@ export default function ConnectionsGame({
           return (
             <div
               key={cat.key}
-              className={`${styles.pop} mx-auto rounded-xl flex flex-col items-center justify-center gap-1 py-4 px-3 text-center font-black tracking-wide text-sm sm:text-base`}
+              className={`${styles.pop} mx-auto rounded-xl flex flex-col items-center justify-center gap-1 py-4 px-3 text-center`}
               style={{
                 backgroundColor: colors.bg,
                 color: colors.text,
                 width: boardWidth,
+                fontSize: tileFontPx,
               }}
             >
-              <span className="font-black text-sm sm:text-base tracking-wide">
-                {cat.title}
-              </span>
-              <span className="font-normal tracking-normal text-sm sm:text-base">
+              <span className="font-black tracking-wide">{cat.title}</span>
+              <span className="font-normal tracking-normal">
                 {cat.words.join(", ")}
               </span>
             </div>
@@ -261,8 +277,11 @@ export default function ConnectionsGame({
 
         {remainingWords.length > 0 && (
           <div
-            className="grid gap-2 justify-center font-black tracking-wide text-sm sm:text-base"
-            style={{ gridTemplateColumns: `repeat(4, ${tileWidth})` }}
+            className="grid gap-2 justify-center font-black tracking-wide"
+            style={{
+              gridTemplateColumns: `repeat(4, ${tileWidth})`,
+              fontSize: tileFontPx,
+            }}
           >
             {remainingWords.map((word) => {
               const isSelected = selected.includes(word);
@@ -272,7 +291,7 @@ export default function ConnectionsGame({
                   onClick={() => toggleSelect(word)}
                   className={`${
                     shakingWords.includes(word) ? styles.shake : ""
-                  } aspect-[4/3] rounded-xl flex items-center justify-center text-center font-black tracking-wide text-sm sm:text-base leading-tight whitespace-nowrap transition-colors cursor-pointer border`}
+                  } aspect-[4/3] rounded-xl flex items-center justify-center text-center font-black tracking-wide leading-tight whitespace-nowrap transition-colors cursor-pointer border`}
                   style={{
                     backgroundColor: isSelected ? "#000000" : "#fdfafa",
                     color: isSelected ? "#fdfafa" : "#000000",
