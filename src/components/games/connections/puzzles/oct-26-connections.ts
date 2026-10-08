@@ -5,7 +5,7 @@ export const oct26ConnectionsPuzzle: ConnectionsPuzzle = {
   categories: [
     {
       key: "yellow",
-      title: "Words in prominent on-campus acapella group names",
+      title: "Words in prominent on-campus a cappella group names",
       words: ["LILIES", "TONES", "SOUL", "NOTES"],
     },
     {
