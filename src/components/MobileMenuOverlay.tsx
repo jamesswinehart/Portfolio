@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useVisibleSections } from './Wrapper';
 
 interface MobileMenuOverlayProps {
   isOpen: boolean;
+  activeSection: string;
   onNavItemClick: (section: string) => void;
 }
 
@@ -13,7 +13,20 @@ type MenuEntry =
 
 const MENU: MenuEntry[] = [
   { kind: 'section', id: 'about', label: 'About' },
-  { kind: 'section', id: 'projects', label: 'Projects' },
+  {
+    kind: 'group',
+    id: 'projects',
+    label: 'Projects',
+    items: [
+      { id: 'crestsocial', label: 'Crest Social' },
+      { id: 'connectegories', label: 'Connectegories' },
+      { id: 'sousspecs', label: 'SousSpecs' },
+      { id: 'foodwastescore', label: 'The Food Waste Score' },
+      { id: 'belicrawl', label: 'Beli Crawl' },
+      { id: 'knowbody', label: 'KnowBody' },
+      { id: 'avaline', label: 'Avaline' },
+    ],
+  },
   {
     kind: 'group',
     id: 'personal',
@@ -28,9 +41,15 @@ const MENU: MenuEntry[] = [
   { kind: 'external', href: 'https://beliapp.co/app/jamesswinehart', label: 'Beli' },
 ];
 
-export default function MobileMenuOverlay({ isOpen, onNavItemClick }: MobileMenuOverlayProps) {
+// Every section the menu can scroll to, in page order.
+export const NAV_SECTION_IDS = MENU.flatMap((entry) => {
+  if (entry.kind === 'section') return [entry.id];
+  if (entry.kind === 'group') return entry.items.map((item) => item.id);
+  return [];
+});
+
+export default function MobileMenuOverlay({ isOpen, activeSection, onNavItemClick }: MobileMenuOverlayProps) {
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
-  const { visibleSections } = useVisibleSections();
 
   const toggleGroup = (groupId: string) => {
     setExpandedGroups(prev => {
@@ -47,8 +66,8 @@ export default function MobileMenuOverlay({ isOpen, onNavItemClick }: MobileMenu
   const sectionLink = (id: string, label: string) => (
     <a
       href={`#${id}`}
+      className={id === activeSection ? 'active' : undefined}
       onClick={(e) => { e.preventDefault(); onNavItemClick(id); }}
-      style={{ opacity: visibleSections.has(id) ? 1 : 0.67 }}
     >
       {label}
     </a>
@@ -65,16 +84,22 @@ export default function MobileMenuOverlay({ isOpen, onNavItemClick }: MobileMenu
           if (entry.kind === 'external') {
             return (
               <li key={entry.label}>
-                <a href={entry.href} target="_blank" rel="noopener noreferrer">
-                  {entry.label} <span className="external-arrow" aria-hidden="true">↗</span>
+                <a href={entry.href} target="_blank" rel="noopener noreferrer" className="external-link">
+                  {entry.label}
                 </a>
               </li>
             );
           }
 
+          const containsActive = entry.items.some((item) => item.id === activeSection);
+
           return (
             <li key={entry.id} className={`has-submenu ${expandedGroups.has(entry.id) ? 'open' : ''}`}>
-              <a href="#" onClick={(e) => { e.preventDefault(); toggleGroup(entry.id); }}>
+              <a
+                href="#"
+                className={containsActive ? 'active' : undefined}
+                onClick={(e) => { e.preventDefault(); toggleGroup(entry.id); }}
+              >
                 {entry.label}
                 <div className="submenu-toggle">
                   <span></span>

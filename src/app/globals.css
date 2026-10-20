@@ -139,7 +139,7 @@ body {
 }
 
 .has-submenu.open .submenu {
-  max-height: 200px;
+  max-height: 500px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -163,6 +163,10 @@ body {
 
 .scroll-content section {
   padding: 16px 0;
+  scroll-margin-top: 80px;
+}
+
+.scroll-content article {
   scroll-margin-top: 80px;
 }
 
@@ -745,7 +749,7 @@ body {
   padding: 12px 20px;
   background: #000;
   color: #fff;
-  border-radius: 16px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -776,8 +780,18 @@ body {
   font-weight: 600;
 }
 
-.external-arrow {
-  margin-left: 6px;
-  font-size: 0.8em;
-  opacity: 0.6;
+/* Menu items are slightly lighter until hovered or active */
+.mobile-menu-overlay a {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-menu-overlay a:hover,
+.mobile-menu-overlay a.active {
+  opacity: 1;
+}
+
+.mobile-menu-overlay .external-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

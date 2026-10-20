@@ -32,6 +32,11 @@ src/
 2. Render it in `src/components/ContentWindow.tsx`.
 3. Add it to `MENU` in `MobileMenuOverlay.tsx`.
 
+## Analytics
+
+- **Page views:** Vercel Web Analytics (`<Analytics />` in `src/app/layout.tsx`). View them in the Vercel dashboard under the project's Analytics tab.
+- **Connectegories plays:** the game posts `started` and `finished` events to `src/app/api/connectegories/event/route.ts`, which counts them in Upstash Redis (only on the production site). Counts live in the hash `connectegories:<puzzle id>`, with daily starts in `connectegories:<puzzle id>:started_by_day`. New puzzles must be added to `PUZZLE_IDS` in that route to be counted.
+
 ## Contact
 
 James Swinehart - [LinkedIn](https://www.linkedin.com/in/jamesswinehart/)

@@ -31,6 +31,16 @@ function wordToCategory(
 
 type Status = "playing" | "won" | "lost";
 
+// Fire-and-forget play tracking (see src/app/api/connectegories/event/route.ts).
+function trackGameEvent(payload: Record<string, string | number>) {
+  fetch("/api/connectegories/event", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    keepalive: true,
+  }).catch(() => {});
+}
+
 export default function ConnectionsGame({
   puzzle = placeholderPuzzle,
 }: {
@@ -112,6 +122,16 @@ export default function ConnectionsGame({
     new Set()
   );
 
+  // A game counts as started on the first tile tap, and is counted once per round.
+  const hasStarted = useRef(false);
+
+  useEffect(() => {
+    if (status === "playing") return;
+    trackGameEvent({ event: "finished", puzzle: puzzle.id, outcome: status, mistakes });
+    // Only report when the game ends, not on every mistake count change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
+
   function keyFor(words: string[]) {
     return [...words].sort().join("|");
   }
@@ -124,6 +144,10 @@ export default function ConnectionsGame({
 
   function toggleSelect(word: string) {
     if (status !== "playing") return;
+    if (!hasStarted.current) {
+      hasStarted.current = true;
+      trackGameEvent({ event: "started", puzzle: puzzle.id });
+    }
     setMessage(null);
     setSelected((prev) => {
       if (prev.includes(word)) return prev.filter((w) => w !== word);
@@ -199,6 +223,7 @@ export default function ConnectionsGame({
   }
 
   function playAgain() {
+    hasStarted.current = false;
     setOrder(shuffle(allWords));
     setSolved([]);
     setSelected([]);
