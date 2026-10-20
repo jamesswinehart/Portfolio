@@ -6,9 +6,12 @@ import { oct26ConnectionsPuzzle } from "@/components/games/connections/puzzles/o
 const PUZZLE_IDS = new Set([placeholderPuzzle.id, oct26ConnectionsPuzzle.id]);
 const MAX_MISTAKES = 4;
 
-// Upstash via the Vercel Marketplace sets KV_REST_API_*; a direct Upstash setup uses UPSTASH_REDIS_REST_*.
-const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
-const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
+// The Vercel Marketplace store for this project was connected with an "UPSTASH_" prefix (UPSTASH_KV_REST_API_*).
+// The fallbacks cover the unprefixed Marketplace names and a direct Upstash setup.
+const url =
+  process.env.UPSTASH_KV_REST_API_URL ?? process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+const token =
+  process.env.UPSTASH_KV_REST_API_TOKEN ?? process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
 const redis = url && token ? new Redis({ url, token }) : null;
 
 type GameEvent =

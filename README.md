@@ -35,7 +35,7 @@ src/
 ## Analytics
 
 - **Page views:** Vercel Web Analytics (`<Analytics />` in `src/app/layout.tsx`). View them in the Vercel dashboard under the project's Analytics tab.
-- **Connectegories plays:** the game posts `started` and `finished` events to `src/app/api/connectegories/event/route.ts`, which counts them in Upstash Redis (only on the production site). Counts live in the hash `connectegories:<puzzle id>`, with daily starts in `connectegories:<puzzle id>:started_by_day`. New puzzles must be added to `PUZZLE_IDS` in that route to be counted.
+- **Connectegories plays:** the game posts `started` and `finished` events to `src/app/api/connectegories/event/route.ts`, which counts them in Upstash Redis (only on the production site). The Redis credentials come from the `UPSTASH_KV_REST_API_URL` / `UPSTASH_KV_REST_API_TOKEN` env vars that the Vercel Marketplace integration added. Counts live in the hash `connectegories:<puzzle id>`, with daily starts in `connectegories:<puzzle id>:started_by_day`. New puzzles must be added to `PUZZLE_IDS` in that route to be counted.
 
 ## Contact
 
