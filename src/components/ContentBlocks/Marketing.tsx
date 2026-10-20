@@ -1,14 +1,14 @@
-import Section from "../Section";
-import PhotoGallery from "../../PhotoGallery";
-import app1 from "../../../assets/images/marketing/app/one.png";
-import app2 from "../../../assets/images/marketing/app/two.png";
-import app3 from "../../../assets/images/marketing/app/three.png";
-import app4 from "../../../assets/images/marketing/app/four.png";
-import print1 from "../../../assets/images/marketing/print/2.png";
-import print2 from "../../../assets/images/marketing/print/3.png";
-import print3 from "../../../assets/images/marketing/print/5.png";
-import print4 from "../../../assets/images/marketing/print/1.png";
-import print5 from "../../../assets/images/marketing/print/4.png";
+import Section from "./Section";
+import PhotoGallery from "../PhotoGallery";
+import app1 from "../../assets/images/marketing/app/one.png";
+import app2 from "../../assets/images/marketing/app/two.png";
+import app3 from "../../assets/images/marketing/app/three.png";
+import app4 from "../../assets/images/marketing/app/four.png";
+import print1 from "../../assets/images/marketing/print/2.png";
+import print2 from "../../assets/images/marketing/print/3.png";
+import print3 from "../../assets/images/marketing/print/5.png";
+import print4 from "../../assets/images/marketing/print/1.png";
+import print5 from "../../assets/images/marketing/print/4.png";
 
 export default function Marketing() {
   const dailyPrincetonianApp = [
@@ -33,12 +33,12 @@ export default function Marketing() {
 
       <h3>The Daily Princetonian App</h3>
       <PhotoGallery items={dailyPrincetonianApp} className="gallery-large" />
-      <p>The Daily Princetonian App allows users to find out what's for lunch, where the best parties are, and what's happening on Princeton's campus at large. My campaign for this app took inspiration from early Apple campaigns. Like the firm once promoted, simplicity remains the ultimate sophistication.</p>
+      <p>The Daily Princetonian App allows users to find out what&apos;s for lunch, where the best parties are, and what&apos;s happening on Princeton&apos;s campus at large. My campaign for this app took inspiration from early Apple campaigns. Like the firm once promoted, simplicity remains the ultimate sophistication.</p>
       <br></br>
 
       <h3>The Daily Princetonian Print Subscriptions</h3>
       <PhotoGallery items={dailyPrincetonianPrint} className="gallery-large" />
-      <p>Inspired by 1990s Wall Street Journal ads, this campaign for The Daily Princetonian used a simple, elegant, retro approach to promote print journalism in the digital age. The campaign increased print subscriptions by 40%—a rare feat in the 21st century. What's old is new again!</p>
+      <p>Inspired by 1990s Wall Street Journal ads, this campaign for The Daily Princetonian used a simple, elegant, retro approach to promote print journalism in the digital age. The campaign increased print subscriptions by 40%—a rare feat in the 21st century. What&apos;s old is new again!</p>
       <br></br>
 
     </Section>

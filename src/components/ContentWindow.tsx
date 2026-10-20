@@ -2,15 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import { useVisibleSections } from "./Wrapper";
-import About from "./ContentBlocks/Everything/About";
-import Projects from "./ContentBlocks/Everything/Projects";
-import Marketing from "./ContentBlocks/Everything/Marketing";
-import Writing from "./ContentBlocks/Everything/Writing";
-import HungryTiger from "./ContentBlocks/Everything/HungryTiger";
-import LinkedIn from "./ContentBlocks/Everywhere/LinkedIn";
-import Beli from "./ContentBlocks/Everywhere/Beli";
-import Instagram from "./ContentBlocks/Everyone/Instagram";
-import ContactMe from "./ContentBlocks/Everyone/ContactMe";
+import About from "./ContentBlocks/About";
+import Projects from "./ContentBlocks/Projects";
+import Writing from "./ContentBlocks/Personal/Writing";
+import HungryTiger from "./ContentBlocks/Personal/HungryTiger";
+import Art from "./ContentBlocks/Personal/Art";
 
 // Constants
 const OBSERVER_OPTIONS = {
@@ -69,20 +65,13 @@ export default function ContentWindow() {
 
       <div className="scroll-content">
         
-        {/* Everything */}
         <About />
         <Projects />
-        <Marketing />
+
+        {/* Personal */}
         <Writing />
         <HungryTiger />
-
-        {/* Everywhere */}
-        <LinkedIn />
-        <Beli />
-
-        {/* Everyone */}
-        <Instagram />
-        <ContactMe />
+        <Art />
       </div>
     </div>
   );

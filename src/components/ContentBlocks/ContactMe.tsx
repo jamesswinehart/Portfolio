@@ -1,12 +1,12 @@
-import Section from "../Section";
+import Section from "./Section";
 import Image from "next/image";
-import linkedinIcon from "../../../assets/images/linkedin.svg";
+import linkedinIcon from "../../assets/images/linkedin.svg";
 
 export default function ContactMe() {
   return (
     <Section id="contactme" title="Me">
       <p>Looking forward to hearing from you!</p>
-      <p>Email me: <a href="mailto:contact@jamesswineh.art" style={{textDecoration: 'underline', fontWeight: 600}}>contact@jamesswineh.art</a></p>
+      <p>Message me on <a href="https://www.linkedin.com/in/jamesswinehart/" target="_blank" rel="noopener noreferrer" className="text-link">LinkedIn</a>.</p>
       <p>
         <a href="https://www.linkedin.com/in/jamesswinehart/" target="_blank" rel="noopener noreferrer">
           <Image 
