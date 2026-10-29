@@ -104,6 +104,16 @@ export default function ConnectionsGame({
   const pagePaddingPx = 32; // px-4 on each side
   const pageMaxWidthPx = Math.max(boardWidthPx + pagePaddingPx, 320);
 
+  // If the natural (unscaled) height of the page still doesn't fit the
+  // available viewport — e.g. a short, fixed-height iframe on PAW — shrink
+  // the whole layout uniformly via CSS transform until it does. A transform
+  // doesn't change layout size, so this re-measures the true natural height
+  // every time, and modern browsers compute scroll overflow from the
+  // post-transform (visual) box, so a shrink here eliminates the scrollbar
+  // rather than just hiding it.
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentScale, setContentScale] = useState(1);
+
   // Start in a deterministic (unshuffled) order so server and client render
   // the same markup, then shuffle client-side after mount to avoid a
   // hydration mismatch from Math.random() running during SSR.
@@ -121,6 +131,22 @@ export default function ConnectionsGame({
   const [wrongGuessKeys, setWrongGuessKeys] = useState<Set<string>>(
     new Set()
   );
+
+  useEffect(() => {
+    function fitToHeight() {
+      const content = contentRef.current;
+      if (!content) return;
+      const naturalHeight = content.offsetHeight;
+      if (naturalHeight <= 0) return;
+      setContentScale(Math.min(1, window.innerHeight / naturalHeight));
+    }
+    fitToHeight();
+    window.addEventListener("resize", fitToHeight);
+    return () => window.removeEventListener("resize", fitToHeight);
+    // Re-fit whenever anything that changes the content's natural height
+    // settles: tile sizing, a category being solved (rows collapse), or the
+    // end-of-game panel appearing.
+  }, [tileWidthPx, tileFontPx, solved.length, status]);
 
   // A game counts as started on the first tile tap, and is counted once per round.
   const hasStarted = useRef(false);
@@ -237,8 +263,13 @@ export default function ConnectionsGame({
 
   return (
     <div
+      ref={contentRef}
       className="w-full mx-auto px-4 py-6 flex flex-col items-center gap-4 select-none"
-      style={{ maxWidth: `${pageMaxWidthPx}px` }}
+      style={{
+        maxWidth: `${pageMaxWidthPx}px`,
+        transform: `scale(${contentScale})`,
+        transformOrigin: "top center",
+      }}
     >
       <div className="text-center mt-3">
         <h1 className="text-4xl font-black tracking-wide text-black">

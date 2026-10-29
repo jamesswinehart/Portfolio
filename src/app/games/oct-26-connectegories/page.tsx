@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Oct26ConnectionsPage() {
   return (
     <div
-      className="fixed inset-0 overflow-y-auto overscroll-contain flex items-start justify-center"
+      className="fixed inset-0 overflow-hidden flex items-start justify-center"
       style={{ backgroundColor: "#f37021" }}
     >
       <ConnectionsGame puzzle={oct26ConnectionsPuzzle} />
