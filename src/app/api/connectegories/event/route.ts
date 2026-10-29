@@ -1,9 +1,14 @@
 import { Redis } from "@upstash/redis";
 import { placeholderPuzzle } from "@/components/games/connections/puzzle";
 import { oct26ConnectionsPuzzle } from "@/components/games/connections/puzzles/oct-26-connections";
+import { nov26ConnectionsPuzzle } from "@/components/games/connections/puzzles/nov-26-connections";
 
 // Only puzzles we actually publish can be counted.
-const PUZZLE_IDS = new Set([placeholderPuzzle.id, oct26ConnectionsPuzzle.id]);
+const PUZZLE_IDS = new Set([
+  placeholderPuzzle.id,
+  oct26ConnectionsPuzzle.id,
+  nov26ConnectionsPuzzle.id,
+]);
 const MAX_MISTAKES = 4;
 
 // The Vercel Marketplace store for this project was connected with an "UPSTASH_" prefix (UPSTASH_KV_REST_API_*).

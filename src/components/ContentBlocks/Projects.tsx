@@ -74,7 +74,7 @@ export default function Projects() {
         <h3>Connectegories</h3>
         <p>Connectegories is a Princeton-themed word puzzle I created for the Princeton Alumni Weekly. Players sort sixteen words into four hidden Princeton categories, from eating clubs to a cappella groups, with four mistakes to spare.</p>
         <p>I write the puzzles and built the game myself in TypeScript with React and Next.js, from the shuffling tile grid to the &quot;one away&quot; hints. It&apos;s hosted on Vercel and embedded right on PAW&apos;s Games page for alumni to play.</p>
-        <LinkButton href="https://paw.princeton.edu/games/connectegories-october-2026">Play on PAW</LinkButton>
+        <LinkButton href="https://www.jamesswineh.art/games/nov-26-connectegories">Play</LinkButton>
         <br></br>
       </article>
 
